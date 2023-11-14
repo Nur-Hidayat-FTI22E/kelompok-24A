@@ -65,25 +65,16 @@ button:hover {
 </head>
 <body>
     <div class="container">
-        <form action="con/connect.php" novalidate method="post">
+        <form action="gajah/conn/connect.php" method="post" enctype="multipart/form-data">
             <h2 style="text-align: center;">Daftar</h2>
-
-            <label for="username">Nama Lengkap</label>
-            <input type="text" id="username" name="username" placeholder="Nama lengkap" required>
-
-            <label for="email">Alamat Email</label>
-            <input type="email" id="email" name="email" placeholder="Alamat email" required>
-
-            <label for="password">Kata Sandi</label>
-            <input type="password" id="password" name="password" placeholder="Kata sandi minimal 8 karakter" required>
-
-            <label for="confirm-password">Konfirmasi Kata Sandi</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Konfirmasi kata sandi" required>
-
-            <button type="submit">Daftar</button>
-
-            <p style="text-align: center; color: #636363;">Sudah punya akun? <a href="#">Masuk</a></p>
-        </form>
+            <input type="text" name="nama" placeholder="Nama">
+            <input type="text" name="username" placeholder="Username">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="file" name="foto" accept="image/*">
+            <input type="submit" value="Daftar">
+          </form>
+          
     </div>
 </body>
 </html>

@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// $con = new mysqli('localhost', 'root', '', 'vedul');
+// $sql = "SELECT * FROM user_account";
+// $result = mysqli_query($con, $sql);
+// $users = array();
+
+// // Loop hasil query dan simpan data ke array asosiatif
+// while ($row = mysqli_fetch_assoc($result)) {
+//     $users[] = $row;
+// }
+?>
+
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
@@ -35,7 +49,7 @@
     <i class="bi bi-list toggle-sidebar-btn"></i>
   </div>
     <div class="d-flex align-items-center justify-content-between">
-      <a href="#" class="logo d-flex align-items-center" style="text-decoration: none;">
+      <a href="../halaman_utama/index.php" class="logo d-flex align-items-center" style="text-decoration: none;">
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <span class="d-none d-lg-block">VedulPro</span>
       </a>
@@ -48,10 +62,10 @@
   <aside id="sidebar" class="sidebar">
   
     <ul class="sidebar-nav" id="sidebar-nav">
-        <a href="./index.html">
+        <a href="./index.php">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../halaman_profil/index.html" style="display: flex; align-items: center;">
-                    <img src="https://png.pngtree.com/png-clipart/20221101/ourlarge/pngtree-passport-photo-cartoon-design-png-image_6405813.png" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                <a class="nav-link collapsed" href="../halaman_profil/index.php" style="display: flex; align-items: center;">
+                    <img src="../gajah/conn/uploads/<?php echo $_SESSION['img']; ?>" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                     <span>Profil Saya</span>
                 </a>
             </li><!-- End Dashboard Nav -->
@@ -59,7 +73,7 @@
             
         </a>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../halaman_utama/index.html">
+        <a class="nav-link collapsed" href="../halaman_utama/index.php">
           <i class="bi bi-house-fill"></i>
           <span>Home</span>
         </a>
@@ -90,7 +104,7 @@
   
       <br><br><br><br><br><br><br><br><br>
   
-      <button class="btn" style="border: 2px solid; color: #616161; border-radius: 12px; margin: 20px;"><a href="" style="color: #616161;"><i class="bi bi-box-arrow-right"></i>   Logout</a></button>
+      <button class="btn" style="border: 2px solid; color: #616161; border-radius: 12px; margin: 20px;"><a href="../login.html" style="color: #616161;"><i class="bi bi-box-arrow-right"></i>   Logout</a></button>
   </aside><!-- End Sidebar-->
 
     <div class="container py-4 py-xl-5">
@@ -102,13 +116,41 @@
                 <div class="card">
                     <div class="card-body p-4">
                         <h4 class="text-center card-title"><strong>Profil Saya</strong></h4><button class="btn btn-primary" type="button" style="background: #5200FF;"><strong>INFORMASI PRIBADI</strong></button>
-                        <p class="card-text"><strong>Nama Lengkap : Fauzan Azhari Rahman</strong><br><strong>Email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: 105841109622@student.unismuh.ac.id</strong><br><strong>No. Telepon&nbsp; &nbsp; &nbsp; : +62 852 4546 0805</strong><br><strong>Alamar&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Jl. Monumen Emmy Saelan&nbsp; III No. 70, Karunrung, Kec. Rapoocini, Kota Makassar</strong></p><button class="btn btn-primary" type="button" style="background: #5200FF;"><strong>INFORMASI AKUN</strong></button>
-                        <p class="card-text"><strong>Nama Pengguna&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Fauzan Azhari</strong><br><strong>Tanggal Pembuatan Akun : 09 Oktober 2023</strong><br><strong>Status&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Terdaftar</strong></p>
+                        <p class="card-text"><strong>Nama Lengkap : <?php echo $_SESSION['nama']; ?></strong><br>
+                        
+                        <strong>Email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <?php echo $_SESSION['email']; ?></strong><br>
+                        
+                        <strong>No. Telepon&nbsp; &nbsp; &nbsp; : 
+                          <?php 
+                          if ($_SESSION['no_hp'] == "") {
+                            echo "<button type='submit'>add</button>";
+                          } else {
+                            echo $_SESSION['no_hp'];
+                          }
+                          ?> 
+                        </strong><br>
+                        
+                        <strong>Alamat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 
+                          <?php 
+                            if ($_SESSION['alamat'] == "") {
+                              echo "<button type='submit'>add</button>";
+                            } else {
+                              echo $_SESSION['alamat'];
+                            }
+                          ?>   
+                        </strong></p><button class="btn btn-primary" type="button" style="background: #5200FF;">
+                        
+                        <strong>INFORMASI AKUN</strong></button>
+                        <p class="card-text"><strong>Nama Pengguna&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <?php echo $_SESSION['username']; ?></strong><br>
+                        
+                        <strong>Tanggal Pembuatan Akun : <?php echo $_SESSION['create_account']; ?></strong><br>
+                        
+                        <strong>Status&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Terdaftar</strong></p>
                     </div>
                 </div>
             </div>
             <div class="col" style="background: #5200FF;">
-                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 300px;" src="https://png.pngtree.com/png-clipart/20221101/ourlarge/pngtree-passport-photo-cartoon-design-png-image_6405813.png" width="334" height="300"></div>
+                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 300px;" src="../gajah/conn/uploads/<?php echo $_SESSION['img']; ?>" width="334" height="300"></div>
             </div>
         </div>
     </div>
