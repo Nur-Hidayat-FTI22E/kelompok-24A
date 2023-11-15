@@ -64,7 +64,7 @@ session_start();
         <a href="./index.html">
             <li class="nav-item">
                 <a class="nav-link collapsed" href="../halaman_profil/index.php" style="display: flex; align-items: center;">
-                    <img src="../gajah/conn/uploads/<?php echo $_SESSION['img']; ?>" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                    <img src="../gajah/conn/uploads/<?php echo $_SESSION['img']; ?>" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px; border-radius: 100px">
                     <span>Profil Saya</span>
                 </a>
             </li><!-- End Dashboard Nav -->
@@ -79,7 +79,7 @@ session_start();
       </li><!-- End Dashboard Nav -->
   
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../modul.html" >
+        <a class="nav-link collapsed" href="../modul.php" >
           <i class="bi bi-book-half"></i>
           <span>Modul</span><i></i>
         </a>
@@ -87,7 +87,7 @@ session_start();
       <!-- End Components Nav -->
   
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../riwayat_belajar.html" >
+        <a class="nav-link collapsed" href="../riwayat_belajar.php" >
           <i class="bi bi-journal-bookmark-fill"></i>
           <span>Riwayat Pembelajaran</span><i></i>
         </a>

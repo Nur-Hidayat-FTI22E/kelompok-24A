@@ -65,7 +65,7 @@ session_start();
         <a href="./index.php">
             <li class="nav-item">
                 <a class="nav-link collapsed" href="../halaman_profil/index.php" style="display: flex; align-items: center;">
-                    <img src="../gajah/conn/uploads/<?php echo $_SESSION['img']; ?>" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                    <img src="../gajah/conn/uploads/<?php echo $_SESSION['img']; ?>" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px; border-radius: 200px">
                     <span>Profil Saya</span>
                 </a>
             </li><!-- End Dashboard Nav -->
@@ -80,7 +80,7 @@ session_start();
       </li><!-- End Dashboard Nav -->
   
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../modul.html" >
+        <a class="nav-link collapsed" href="../modul.php" >
           <i class="bi bi-book-half"></i>
           <span>Modul</span><i></i>
         </a>
@@ -88,7 +88,7 @@ session_start();
       <!-- End Components Nav -->
   
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../riwayat_belajar.html" >
+        <a class="nav-link collapsed" href="../riwayat_belajar.php" >
           <i class="bi bi-journal-bookmark-fill"></i>
           <span>Riwayat Pembelajaran</span><i></i>
         </a>
@@ -135,7 +135,7 @@ session_start();
                             if ($_SESSION['alamat'] == "") {
                               echo "<button type='submit'>add</button>";
                             } else {
-                              echo $_SESSION['alamat'];
+                              echo $_SESSION['alamat '];
                             }
                           ?>   
                         </strong></p><button class="btn btn-primary" type="button" style="background: #5200FF;">
@@ -145,7 +145,7 @@ session_start();
                         
                         <strong>Tanggal Pembuatan Akun : <?php echo $_SESSION['create_account']; ?></strong><br>
                         
-                        <strong>Status&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Terdaftar</strong></p>
+                        <strong>Status&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : vvip</strong></p>
                     </div>
                 </div>
             </div>

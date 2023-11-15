@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +49,7 @@
     <i class="bi bi-list toggle-sidebar-btn"></i>
   </div>
   <div class="d-flex align-items-center justify-content-between">
-    <a href="#" class="logo d-flex align-items-center" style="text-decoration: none;">
+    <a href="halaman_profil/index.php" class="logo d-flex align-items-center" style="text-decoration: none;">
       <!-- <img src="assets/img/logo.png" alt=""> -->
       <span class="d-none d-lg-block">VedulPro</span>
     </a>
@@ -56,10 +62,10 @@
 <aside id="sidebar" class="sidebar">
 
   <ul class="sidebar-nav" id="sidebar-nav">
-      <a href="./index.html">
+      <a href="./index.php">
           <li class="nav-item">
-              <a class="nav-link collapsed" href="./halaman_profil/index.html" style="display: flex; align-items: center;">
-                  <img src="https://png.pngtree.com/png-clipart/20221101/ourlarge/pngtree-passport-photo-cartoon-design-png-image_6405813.png" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+              <a class="nav-link collapsed" href="./halaman_profil/index.php" style="display: flex; align-items: center;">
+                  <img src="gajah/conn/uploads/<?php echo $_SESSION['img']; ?>" alt="Profil Icon" style="width: 20px; height: 20px; margin-right: 5px; border-radius: 100px;">
                   <span>Profil Saya</span>
               </a>
           </li><!-- End Dashboard Nav -->
@@ -67,14 +73,14 @@
           
       </a>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="./halaman_utama/index.html">
+      <a class="nav-link collapsed" href="./halaman_utama/index.php">
         <i class="bi bi-house-fill"></i>
         <span>Home</span>
       </a>
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="modul.html" >
+      <a class="nav-link collapsed" href="modul.php" >
         <i class="bi bi-book-half"></i>
         <span>Modul</span><i></i>
       </a>
@@ -82,7 +88,7 @@
     <!-- End Components Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="./riwayat_belajar.html" >
+      <a class="nav-link collapsed" href="./riwayat_belajar.php" >
         <i class="bi bi-journal-bookmark-fill"></i>
         <span>Riwayat Pembelajaran</span><i></i>
       </a>
@@ -98,7 +104,7 @@
 
     <br><br><br><br><br><br><br><br><br>
 
-    <button class="btn" style="border: 2px solid; color: #616161; border-radius: 12px; margin: 20px;"><a href="" style="color: #616161;"><i class="bi bi-box-arrow-right"></i>   Logout</a></button>
+    <button class="btn" style="border: 2px solid; color: #616161; border-radius: 12px; margin: 20px;"><a href="login.html" style="color: #616161;"><i class="bi bi-box-arrow-right"></i>   Logout</a></button>
 </aside><!-- End Sidebar-->
 
   <main id="main" class="main">

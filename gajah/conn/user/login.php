@@ -15,23 +15,28 @@ if (empty($username) || empty($password)) {
     $result = mysqli_query($con, $sql);
 
     // Jika data ditemukan, set session
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0 && password_verify($password, $row["password"])) {
         session_start();
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['nama'] = $row['nama_lengkap'];
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['img'] = $row['foto'];
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['no_hp'] = $row['no_hp'];
-        $_SESSION['alamat'] = $row['alamat'];
-        $_SESSION['create_account'] = $row['date_user_create'];
-        $_SESSION['logged_in'] = true;
+        
+        // $user_row = mysqli_fetch_assoc($result);
+            $_SESSION['nama'] = $row['nama_lengkap'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['img'] = $row['foto'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['no_hp'] = $row['no_hp'];
+            $_SESSION['alamat'] = $row['alamat'];
+            $_SESSION['create_account'] = $row['date_user_create'];
+            $_SESSION['logged_in'] = true;
+            // Arahkan ke halaman home
+            header("Location: ../../../halaman_utama/index.php");
 
-        // Arahkan ke halaman home
-        header("Location: ../../../halaman_utama/index.php");
     } else {
-        // Jika data tidak ditemukan, tampilkan pesan error
-        echo "username atau password salah!";
+        // // Jika data tidak ditemukan, tampilkan pesan error
+        // echo "username atau password salah!";
+        echo "Username does not exist.";
+        echo "Invalid password.";
+        
     }
 }
 
